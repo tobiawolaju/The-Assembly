@@ -134,8 +134,8 @@ const LandingHero = () => {
         }
 
         .photo-circle {
-          width: 250px;
-          height: 250px;
+          width: 200px;
+          height: 200px;
           border-radius: 50%;
           margin: auto;
           position: relative;
@@ -241,8 +241,8 @@ const LandingHero = () => {
             padding: 20px;
           }
           .photo-circle {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
           }
           .word-swap {
             min-width: 150px;
