@@ -138,11 +138,12 @@ const LandingHero = () => {
         }
 
         .main-headline {
-          font-size: clamp(3rem, 10vw, 4.5rem);
+          font-size: clamp(2.5rem, 9vw, 4rem);
           font-weight: 800;
           line-height: 1;
           letter-spacing: -0.04em;
           margin-bottom: 20px;
+          max-width: 50vw;
         }
 
         .word-swap {
@@ -182,8 +183,8 @@ const LandingHero = () => {
             grid-template-columns: repeat(3, 1fr);
           }
           .base-circle {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
           }
         }
       `}</style>
