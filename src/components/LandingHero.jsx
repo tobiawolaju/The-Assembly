@@ -1,80 +1,89 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const words = ["builders", "creators", "traders", "founders"];
+const content = [
+  { word: "designers", color: "#FF4D00" }, // Orange
+  { word: "creators", color: "#C5FF00" },  // Lime Green
+  { word: "builders", color: "#0070FF" },  // Blue
+  { word: "founders", color: "#FFFFFF" }   // White
+];
 
 const LandingHero = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
-    }, 3000);
+      setIndex((prev) => (prev + 1) % content.length);
+    }, 2500);
     return () => clearInterval(timer);
   }, []);
 
-  const photos = [
-    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1522071823991-b5ae72647a4a?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=400&fit=crop",
-    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400&h=400&fit=crop",
+  // Simplified positions to mimic the scattered circle look in the images
+  const photoPositions = [
+    { top: '10%', left: '15%', size: '110px' },
+    { top: '25%', right: '15%', size: '130px' },
+    { bottom: '25%', left: '10%', size: '120px' },
+    { bottom: '15%', right: '10%', size: '140px' },
+    { top: '50%', right: '20%', size: '110px' },
   ];
 
-  const photoConfigs = useMemo(() => {
-    return [...Array(12)].map((_, i) => ({
-      id: i,
-      url: photos[i % photos.length],
-      visibleByDefault: Math.random() < 0.33,
-      isColorOnHover: Math.random() > 0.5,
-      bgColor: ['#1a1a1a', '#222', '#141414', '#0d0d0d'][Math.floor(Math.random() * 4)]
-    }));
-  }, [photos]);
+  const photos = [
+    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400",
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400",
+    "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400",
+    "https://images.unsplash.com/photo-1522071823991-b5ae72647a4a?w=400",
+    "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400",
+  ];
 
   return (
     <section className="landing-hero">
-      <div className="photo-bg">
-        {photoConfigs.map((config) => (
-          <div
-            key={config.id}
-            className={`photo-circle ${config.visibleByDefault ? 'show-default' : ''} ${config.isColorOnHover ? 'hover-color' : 'hover-gray'}`}
-            style={{
-              backgroundColor: config.bgColor,
+      {/* Background Layer: Subtle dark circles and scattered photos */}
+      <div className="background-overlay">
+        {photoPositions.map((pos, i) => (
+          <div 
+            key={i} 
+            className="scattered-photo"
+            style={{ 
+              ...pos, 
+              backgroundImage: `url(${photos[i]})`,
             }}
-          >
-            <div
-              className="photo-inner"
-              style={{ backgroundImage: `url(${config.url})` }}
-            ></div>
-          </div>
+          />
         ))}
       </div>
 
       <div className="hero-content">
         <h1 className="main-headline">
-          Cracked <span className="word-swap">
+          Cracked <br />
+          <span className="word-swap">
             <AnimatePresence mode="wait">
               <motion.span
-                key={words[index]}
-                initial={{ opacity: 0, y: 10 }}
+                key={content[index].word}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.5 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
+                style={{ color: content[index].color }}
                 className="highlighted-word"
               >
-                {words[index]}
+                {content[index].word}
               </motion.span>
             </AnimatePresence>
-          </span> need<br />
-          a cracked home.
+          </span> 
+          <br />need a <br />cracked home.
         </h1>
+        
         <p className="sub-headline">
-          Your circle is your edge to build products,<br />
-          find users and raise capital.
+          Your circle is your edge to<br />
+          build products, find users and<br />
+          raise capital.
         </p>
+
         <button className="join-btn">
-          Join Inner Circle &rarr;
+          Join Inner Circle 
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </button>
       </div>
 
@@ -82,150 +91,87 @@ const LandingHero = () => {
         .landing-hero {
           position: relative;
           min-height: 100vh;
-          background-color: #0b0b0b;
-          color: #fff;
+          background-color: #080808;
+          color: #ffffff;
           display: flex;
-          flex-direction: column;
           align-items: center;
           justify-content: center;
           overflow: hidden;
-          text-align: center;
+          font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
         }
 
-        .top-nav {
+        .background-overlay {
           position: absolute;
-          top: 0;
-          width: 100%;
-          padding: 40px 60px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          z-index: 100;
-        }
-
-        .nav-links {
-          display: flex;
-          gap: 40px;
-        }
-
-        .nav-links a {
-          color: #666;
-          text-decoration: none;
-          font-size: 0.9rem;
-          transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-          color: #fff;
-        }
-
-        .photo-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          grid-template-rows: repeat(3, 1fr);
-          gap: 20px;
-          padding: 80px;
+          inset: 0;
           z-index: 1;
         }
 
-        .photo-circle {
-          width: 200px;
-          height: 200px;
-          border-radius: 50%;
-          margin: auto;
-          position: relative;
-          z-index: 1;
-          transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-          overflow: visible; /* Allow scale to go outside */
-        }
-
-        .photo-inner {
+        .scattered-photo {
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
           border-radius: 50%;
           background-size: cover;
           background-position: center;
-          opacity: 0;
-          filter: grayscale(1);
-          transition: all 0.5s ease;
+          filter: grayscale(100%) brightness(0.7);
+          opacity: 0.6;
+          transition: transform 0.3s ease;
+          box-shadow: 0 0 40px rgba(0,0,0,0.5);
         }
 
-        .photo-circle.show-default .photo-inner {
-          opacity: 0.2;
-        }
-
-        .photo-circle:hover {
-          z-index: 200;
-          transform: scale(1.1);
-        }
-
-        .photo-circle:hover .photo-inner {
+        .scattered-photo:hover {
+          filter: grayscale(0%);
           opacity: 1;
-        }
-
-        .photo-circle.hover-color:hover .photo-inner {
-          filter: grayscale(0);
-        }
-
-        .photo-circle.hover-gray:hover .photo-inner {
-          filter: grayscale(1);
+          transform: scale(1.05);
         }
 
         .hero-content {
           position: relative;
           z-index: 10;
-          max-width: 900px;
-          pointer-events: none;
-        }
-
-        .hero-content button, .hero-content .word-swap {
-          pointer-events: auto;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
 
         .main-headline {
-          font-size: clamp(3rem, 10vw, 5.5rem);
-          font-weight: 700;
-          line-height: 1.05;
-          letter-spacing: -0.04em;
-          margin-bottom: 24px;
+          font-size: clamp(3.5rem, 12vw, 5.5rem);
+          font-weight: 800;
+          line-height: 0.95;
+          letter-spacing: -0.05em;
+          margin-bottom: 30px;
         }
 
         .word-swap {
-          display: inline-block;
-          min-width: 280px;
-          text-align: center;
+          display: block;
+          height: 1.1em;
+          position: relative;
         }
 
         .highlighted-word {
-          color: #5900ffff;
+          display: block;
         }
 
         .sub-headline {
-          font-size: 1.5rem;
-          color: #a1a1aa;
-          line-height: 1.4;
+          font-size: 1.25rem;
+          color: #888;
+          line-height: 1.3;
           margin-bottom: 40px;
-          font-weight: 400;
+          font-weight: 500;
+          max-width: 400px;
         }
 
         .join-btn {
-          background-color: #fff;
-          color: #000;
-          padding: 16px 32px;
-          border-radius: 40px;
-          font-size: 1.2rem;
-          font-weight: 600;
+          background-color: #ffffff;
+          color: #000000;
+          padding: 14px 28px;
+          border-radius: 100px;
+          font-size: 1.1rem;
+          font-weight: 700;
           border: none;
+          display: flex;
+          align-items: center;
+          gap: 10px;
           cursor: pointer;
-          transition: transform 0.2s;
+          transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .join-btn:hover {
@@ -233,22 +179,11 @@ const LandingHero = () => {
         }
 
         @media (max-width: 768px) {
-          .top-nav {
-            padding: 20px;
-          }
-          .photo-bg {
-            grid-template-columns: repeat(2, 1fr);
-            padding: 20px;
-          }
-          .photo-circle {
-            width: 150px;
-            height: 150px;
-          }
-          .word-swap {
-            min-width: 150px;
-          }
           .main-headline {
-            font-size: 2.5rem;
+            font-size: 3.2rem;
+          }
+          .scattered-photo {
+            opacity: 0.4; /* Fade background more on mobile for readability */
           }
         }
       `}</style>
