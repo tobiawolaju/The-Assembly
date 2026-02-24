@@ -205,7 +205,7 @@ const LandingHero = () => {
         }
 
         .highlighted-word {
-          color: #0047ff;
+          color: #5900ffff;
         }
 
         .sub-headline {
