@@ -81,7 +81,7 @@ const LandingHero = () => {
       <style jsx>{`
         .landing-hero {
           position: relative;
-          min-height: 135vh;
+          min-height: 100vh;
           background-color: #0b0b0b;
           color: #fff;
           display: flex;
