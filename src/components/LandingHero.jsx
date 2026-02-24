@@ -143,7 +143,7 @@ const LandingHero = () => {
           line-height: 1;
           letter-spacing: -0.04em;
           margin-bottom: 20px;
-          max-width: 50vw;
+          max-width: 80vw;
         }
 
         .word-swap {
