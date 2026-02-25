@@ -35,15 +35,6 @@ const socialPosts = [
     text: "highlight of my 2025 can be summarised with just one hex code. starting w based fellowship in the mountains, that's where i got blue-pilled.",
     avatar: "https://i.pravatar.cc/150?u=razi",
     link: "https://twitter.com"
-  },
-  {
-    id: 5,
-    name: "Sarah Chen",
-    handle: "@sarah_dev",
-    text: "Just launched the beta! The support from the Inner Circle community has been insane. If you're building in public, you need to be here.",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&auto=format",
-    avatar: "https://i.pravatar.cc/150?u=sarah",
-    link: "https://twitter.com"
   }
 ];
 
@@ -56,19 +47,24 @@ const SocialProof = () => {
           {socialPosts.map((post) => (
             <motion.div
               key={post.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="social-card-wrapper"
             >
-              {/* Blur Overlay */}
+              {/* Overlay with Blur Trigger */}
               <div className="card-overlay">
-                <a href={post.link} target="_blank" rel="noopener noreferrer" className="view-btn">
+                <a 
+                  href={post.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="view-btn"
+                >
                   View on Twitter
                 </a>
               </div>
 
-              {/* Main Content */}
+              {/* Main White Card Content */}
               <div className="social-card">
                 <div className="card-header">
                   <div className="user-info">
@@ -99,13 +95,12 @@ const SocialProof = () => {
 
       <style jsx>{`
         .social-grid-section {
-          background-color: #000;
-          padding: 100px 20px;
-          min-height: 100vh;
+          background-color: #080808; /* Dark section background to make cards pop */
+          padding: 80px 20px;
         }
 
         .container {
-          max-width: 1100px;
+          max-width: 1200px;
           margin: 0 auto;
         }
 
@@ -115,7 +110,7 @@ const SocialProof = () => {
           font-weight: 800;
           text-align: center;
           margin-bottom: 50px;
-          letter-spacing: -0.05em;
+          letter-spacing: -0.04em;
         }
 
         .masonry-grid {
@@ -127,62 +122,64 @@ const SocialProof = () => {
           position: relative;
           break-inside: avoid;
           margin-bottom: 20px;
-          border-radius: 16px;
+          border-radius: 12px;
           overflow: hidden;
-          background: #111;
-          border: 1px solid #222;
+          background: #ffffff; /* Pure White Card */
           cursor: pointer;
+          transition: transform 0.3s ease;
         }
 
         .social-card {
-          padding: 20px;
+          padding: 24px;
           transition: filter 0.3s ease;
         }
 
-        /* Hover States */
+        /* Interaction Logic */
         .card-overlay {
           position: absolute;
           inset: 0;
-          z-index: 5;
+          z-index: 10;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: rgba(0, 0, 0, 0.2);
+          background: rgba(255, 255, 255, 0.1);
           opacity: 0;
           transition: opacity 0.3s ease;
           pointer-events: none;
         }
 
         .social-card-wrapper:hover .social-card {
-          filter: blur(8px) brightness(0.5);
+          filter: blur(6px) grayscale(0.5);
         }
 
         .social-card-wrapper:hover .card-overlay {
           opacity: 1;
           pointer-events: auto;
+          backdrop-filter: blur(2px);
         }
 
         .view-btn {
-          background: #fff;
-          color: #000;
-          padding: 10px 20px;
+          background: #000;
+          color: #fff;
+          padding: 12px 24px;
           border-radius: 100px;
           font-weight: 700;
           font-size: 0.9rem;
           text-decoration: none;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.2);
           transform: translateY(10px);
-          transition: transform 0.3s ease;
+          transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .social-card-wrapper:hover .view-btn {
           transform: translateY(0);
         }
 
-        /* Twitter Content Styling */
+        /* Typography & Header Styling */
         .card-header {
           display: flex;
           justify-content: space-between;
-          margin-bottom: 12px;
+          margin-bottom: 16px;
         }
 
         .user-info {
@@ -192,47 +189,48 @@ const SocialProof = () => {
         }
 
         .avatar {
-          width: 42px;
-          height: 42px;
+          width: 48px;
+          height: 48px;
           border-radius: 50%;
-          background: #333;
+          border: 1px solid #f0f0f0;
         }
 
         .user-name {
-          color: #fff;
-          font-weight: 700;
-          font-size: 0.95rem;
+          color: #000;
+          font-weight: 750;
+          font-size: 1rem;
           margin: 0;
         }
 
         .verified {
           color: #1d9bf0;
-          font-size: 0.8rem;
+          font-size: 0.85rem;
           margin-left: 2px;
         }
 
         .user-handle {
-          color: #71767b;
-          font-size: 0.85rem;
+          color: #536471;
+          font-size: 0.9rem;
           margin: 0;
         }
 
         .twitter-icon {
-          color: #71767b;
+          color: #cfd9de;
         }
 
         .post-text {
-          color: #e7e9ea;
-          font-size: 1rem;
+          color: #0f1419;
+          font-size: 1.05rem;
           line-height: 1.5;
-          margin-bottom: 15px;
+          margin-bottom: 16px;
+          font-weight: 400;
         }
 
         .post-image-container {
           width: 100%;
-          border-radius: 12px;
+          border-radius: 16px;
           overflow: hidden;
-          border: 1px solid #333;
+          border: 1px solid #eff3f4;
         }
 
         .post-image {
