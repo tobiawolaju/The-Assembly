@@ -66,7 +66,7 @@ const LandingHero = () => {
           position: relative;
           min-height: 100vh;
           background-color: #050505;
-          color: #7f2fffff;
+          color: rgba(172, 47, 255, 1);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -123,7 +123,7 @@ const LandingHero = () => {
         }
 
         .main-headline {
-          font-size: clamp(2.5rem, 9vw, 4rem);
+          font-size: clamp(3rem, 9vw, 4rem);
           font-weight: 800;
           line-height: 1;
           letter-spacing: -0.04em;
