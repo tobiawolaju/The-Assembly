@@ -36,7 +36,7 @@ const GetSupportModal = ({ isOpen, onClose }) => {
 
   const handleClose = () => {
     setSubmitted(false);
-    setForm({ building: '', problem: '', audience: '', stage: '', support: '' });
+    setForm({ xUsername: '', building: '', problem: '', audience: '', stage: '', support: '' });
     onClose();
   };
 
@@ -300,6 +300,41 @@ const GetSupportModal = ({ isOpen, onClose }) => {
         .form-group input::placeholder,
         .form-group textarea::placeholder {
           color: #444;
+        }
+
+        .input-with-prefix {
+          display: flex;
+          align-items: center;
+          background: rgba(255,255,255,0.04);
+          border: 1px solid rgba(255,255,255,0.1);
+          border-radius: 10px;
+          overflow: hidden;
+          transition: border-color 0.2s;
+        }
+
+        .input-with-prefix:focus-within {
+          border-color: rgba(172, 47, 255, 0.5);
+        }
+
+        .input-prefix {
+          padding: 12px 10px 12px 14px;
+          color: #555;
+          font-size: 0.95rem;
+          font-weight: 600;
+          user-select: none;
+          pointer-events: none;
+        }
+
+        .input-with-prefix input {
+          background: transparent;
+          border: none;
+          border-radius: 0;
+          padding: 12px 14px 12px 0;
+          flex: 1;
+        }
+
+        .input-with-prefix input:focus {
+          border-color: transparent;
         }
 
         .chip-group {
