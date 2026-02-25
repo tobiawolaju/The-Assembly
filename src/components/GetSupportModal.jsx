@@ -6,6 +6,7 @@ const SUPPORT_TYPES = ['Mentorship', 'Co-founder', 'Funding', 'Community', 'Feed
 
 const GetSupportModal = ({ isOpen, onClose }) => {
   const [form, setForm] = useState({
+    xUsername: '',
     building: '',
     problem: '',
     audience: '',
@@ -76,6 +77,22 @@ const GetSupportModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <form className="support-form" onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label htmlFor="xUsername">Your X (Twitter) username</label>
+                    <div className="input-with-prefix">
+                      <span className="input-prefix">@</span>
+                      <input
+                        id="xUsername"
+                        name="xUsername"
+                        type="text"
+                        placeholder="yourhandle"
+                        value={form.xUsername}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+
                   <div className="form-group">
                     <label htmlFor="building">What are you building?</label>
                     <textarea

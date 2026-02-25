@@ -38,10 +38,8 @@ const TopBar = () => {
           display: flex;
           justify-content: flex-end;
           padding: 14px 28px;
-          background: rgba(5, 5, 5, 0.15);
-          backdrop-filter: blur(12px);
-          -webkit-backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+          background: rgba(0, 0, 0, 0);
+          border-bottom:none;
         }
 
         .top-bar-nav {
