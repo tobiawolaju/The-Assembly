@@ -56,8 +56,8 @@ const Branding = () => {
         }
 
         .subscribe-btn {
-          background-color: #6200ffff;
-          color: #fff;
+          background-color: rgba(172, 47, 255, 1);
+          color: #000000ff;
           padding: 18px 36px;
           border-radius: 40px;
           font-size: 1.2rem;
