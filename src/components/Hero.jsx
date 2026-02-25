@@ -1,27 +1,45 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 const ScrollHighlightWord = ({ children }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start 0.8", "start 0.2"]
+    offset: ["start 0.9", "start 0.1"] // Wider range for longer duration
   });
 
-  // Map the scroll progress to a color transition (white -> purple -> white)
-  // peak purple at the middle of the offset range
-  const color = useTransform(
+  // Raw color transformation
+  const targetColor = useTransform(
     scrollYProgress,
-    [0, 0.4, 0.5, 0.6, 1],
+    [0, 0.45, 0.5, 0.55, 1],
     ["#ffffff", "#ffffff", "rgba(172, 47, 255, 1)", "#ffffff", "#ffffff"]
   );
+
+  // Raw scale transformation
+  const targetScale = useTransform(
+    scrollYProgress,
+    [0, 0.45, 0.5, 0.55, 1],
+    [1, 1, 1.15, 1, 1]
+  );
+
+  // Use springs for smoother, more fluid motion
+  const springConfig = { stiffness: 50, damping: 20, restDelta: 0.001 };
+  const color = useSpring(targetColor, springConfig);
+  const scale = useSpring(targetScale, springConfig);
 
   return (
     <motion.span
       ref={ref}
-      style={{ color }}
-      whileHover={{ color: "rgba(172, 47, 255, 1)" }}
-      transition={{ duration: 0.2 }}
+      style={{
+        color,
+        scale,
+        display: "inline-block",
+        transformOrigin: "center center"
+      }}
+      whileHover={{
+        color: "rgba(172, 47, 255, 1)",
+        scale: 1.15,
+        transition: { duration: 0.2 }
+      }}
       className="hover-word"
     >
       {children}
