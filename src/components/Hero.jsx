@@ -22,10 +22,18 @@ const ScrollHighlightWord = ({ children }) => {
     [1, 1.2, 1.5, 1.2, 1]
   );
 
+  // Raw opacity transformation
+  const targetOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.5, 0.6, 1],
+    [0.5, 0.75, 1, 0.75, 0.5]
+  );
+
   // Use springs for smoother, more fluid motion
   const springConfig = { stiffness: 50, damping: 20, restDelta: 0.001 };
   const color = useSpring(targetColor, springConfig);
   const scale = useSpring(targetScale, springConfig);
+  const opacity = useSpring(targetOpacity, springConfig);
 
   return (
     <motion.span
@@ -33,12 +41,14 @@ const ScrollHighlightWord = ({ children }) => {
       style={{
         color,
         scale,
+        opacity,
         display: "inline-block",
         transformOrigin: "center center"
       }}
       whileHover={{
         color: "#bf00ff",
         scale: 1.5,
+        opacity: 1,
         transition: { duration: 0.3 }
       }}
       className="hover-word"
