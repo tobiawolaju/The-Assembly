@@ -68,11 +68,11 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="hero-headline"
         >
-          <ScrollHighlightWord>Builders</ScrollHighlightWord> <br />{" "}
-          <ScrollHighlightWord>Developers</ScrollHighlightWord> <br />{" "}
-          <ScrollHighlightWord>Designers</ScrollHighlightWord> <br />{" "}
-          <ScrollHighlightWord>Student founders</ScrollHighlightWord> <br />
-          primarily building within the Monad ecosystem.
+          <div className="word-line"><ScrollHighlightWord>Builders</ScrollHighlightWord></div>
+          <div className="word-line"><ScrollHighlightWord>Developers</ScrollHighlightWord></div>
+          <div className="word-line"><ScrollHighlightWord>Designers</ScrollHighlightWord></div>
+          <div className="word-line"><ScrollHighlightWord>Student founders</ScrollHighlightWord></div>
+          <div className="word-line last">primarily building within the Monad ecosystem.</div>
         </motion.h1>
       </div>
 
@@ -99,6 +99,20 @@ const Hero = () => {
           letter-spacing: -0.04em;
           text-align: left;
           font-family: 'Inter', system-ui, sans-serif;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .word-line {
+          margin-bottom: 1.4em; /* Roughly one line height of space between words */
+        }
+
+        .word-line.last {
+          margin-bottom: 0;
+          font-size: clamp(1.2rem, 3vw, 1.8rem);
+          font-weight: 400;
+          opacity: 0.5;
+          margin-top: 0.5em;
         }
 
         .hover-word {
