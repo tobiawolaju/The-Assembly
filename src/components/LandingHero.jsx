@@ -96,7 +96,7 @@ const LandingHero = () => {
           width: 280px;
           height: 280px;
           border-radius: 50%;
-          background-color: #121212; /* The "placeholder" circle color */
+          background-color: #12121273; /* The "placeholder" circle color */
           background-size: cover;
           background-position: center;
           transition: all 0.4s ease;
