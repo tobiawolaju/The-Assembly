@@ -68,13 +68,10 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="hero-headline"
         >
-          <ScrollHighlightWord>Builders</ScrollHighlightWord>.{" "}
-          <br />
-          <ScrollHighlightWord>Developers</ScrollHighlightWord>.{" "}
-          <br />
-          <ScrollHighlightWord>Designers</ScrollHighlightWord>.{" "}
-          <br />
-          <ScrollHighlightWord>Student founders</ScrollHighlightWord> — <br />
+          <ScrollHighlightWord>Builders</ScrollHighlightWord> <br />{" "}
+          <ScrollHighlightWord>Developers</ScrollHighlightWord> <br />{" "}
+          <ScrollHighlightWord>Designers</ScrollHighlightWord> <br />{" "}
+          <ScrollHighlightWord>Student founders</ScrollHighlightWord> <br />
           primarily building within the Monad ecosystem.
         </motion.h1>
       </div>
