@@ -42,7 +42,7 @@ const SocialProof = () => {
   return (
     <section className="social-grid-section">
       <div className="container">
-        <h2 className="section-title">Wall of Love</h2>
+        <h2 className="section-title">Members 28 | 10 insitution, </h2>
         <div className="masonry-grid">
           {socialPosts.map((post) => (
             <motion.div
@@ -54,10 +54,10 @@ const SocialProof = () => {
             >
               {/* Overlay with Blur Trigger */}
               <div className="card-overlay">
-                <a 
-                  href={post.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href={post.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="view-btn"
                 >
                   View on Twitter
@@ -122,7 +122,7 @@ const SocialProof = () => {
           position: relative;
           break-inside: avoid;
           margin-bottom: 20px;
-          border-radius: 12px;
+          border-radius: 0px;
           overflow: hidden;
           background: #ffffff; /* Pure White Card */
           cursor: pointer;
