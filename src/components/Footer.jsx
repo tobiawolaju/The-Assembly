@@ -8,7 +8,9 @@ const Footer = () => {
         <div className="newsletter-section">
           <div className="newsletter-text">
             <h2>Interested but not yet qualified?</h2>
-            <p>Stay informed on emerging technologies shaping the future of how we live and build.</p>
+            <p>
+              Stay informed on emerging technologies shaping the future of how we live and build.
+            </p>
             <p className="sub-text">Subscribe to the newsletter.</p>
           </div>
           
@@ -16,7 +18,11 @@ const Footer = () => {
             <h3 className="signal-title">Subscribe to The Signal</h3>
             <p className="stay-ahead">Stay ahead.</p>
             <div className="input-group">
-              <input type="email" placeholder="email@address.com" className="email-input" />
+              <input
+                type="email"
+                placeholder="email@address.com"
+                className="email-input"
+              />
               <button className="subscribe-btn">
                 Subscribe Now <span>→</span>
               </button>
@@ -30,17 +36,19 @@ const Footer = () => {
         <div className="footer-bottom-grid">
           <div className="brand-col">
             <h1 className="footer-logo">INNERCIRCLE</h1>
-            <p className="tagline">The cracked home for cracked talent.</p>
+            <p className="tagline">Merit over noise.</p>
           </div>
 
           <div className="links-col">
             <div className="social-links">
-              <a href="#">Connect X</a>
+              <a href="#">X</a>
               <a href="#">LinkedIn</a>
               <a href="#">Substack</a>
             </div>
             <div className="legal-links">
-              <p>&copy; {new Date().getFullYear()} Inner Circle. All rights reserved.</p>
+              <p>
+                &copy; {new Date().getFullYear()} Inner Circle. All rights reserved.
+              </p>
             </div>
           </div>
         </div>
@@ -200,9 +208,11 @@ const Footer = () => {
             grid-template-columns: 1fr;
             gap: 40px;
           }
+
           .footer-logo {
             font-size: 3rem;
           }
+
           .footer-bottom-grid {
             flex-direction: column;
             align-items: flex-start;
