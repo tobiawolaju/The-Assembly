@@ -1,5 +1,33 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+const ScrollHighlightWord = ({ children }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.8", "start 0.2"]
+  });
+
+  // Map the scroll progress to a color transition (white -> purple -> white)
+  // peak purple at the middle of the offset range
+  const color = useTransform(
+    scrollYProgress,
+    [0, 0.4, 0.5, 0.6, 1],
+    ["#ffffff", "#ffffff", "rgba(172, 47, 255, 1)", "#ffffff", "#ffffff"]
+  );
+
+  return (
+    <motion.span
+      ref={ref}
+      style={{ color }}
+      whileHover={{ color: "rgba(172, 47, 255, 1)" }}
+      transition={{ duration: 0.2 }}
+      className="hover-word"
+    >
+      {children}
+    </motion.span>
+  );
+};
 
 const Hero = () => {
   return (
@@ -11,7 +39,10 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="hero-headline"
         >
-          <span className="hover-word">Builders</span>. <span className="hover-word">Developers</span>. <span className="hover-word">Designers</span>. <span className="hover-word">Student founders</span> — <br />
+          <ScrollHighlightWord>Builders</ScrollHighlightWord>.{" "}
+          <ScrollHighlightWord>Developers</ScrollHighlightWord>.{" "}
+          <ScrollHighlightWord>Designers</ScrollHighlightWord>.{" "}
+          <ScrollHighlightWord>Student founders</ScrollHighlightWord> — <br />
           primarily building within the Monad ecosystem.
         </motion.h1>
       </div>
@@ -42,12 +73,8 @@ const Hero = () => {
         }
 
         .hover-word {
-          transition: color 0.3s ease;
           cursor: crosshair;
-        }
-
-        .hover-word:hover {
-          color: #7f2fffff;
+          display: inline-block;
         }
 
         .separator {
