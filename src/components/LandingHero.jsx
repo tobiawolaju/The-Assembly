@@ -57,7 +57,7 @@ const LandingHero = () => {
         </p>
 
         <button className="join-btn">
-          Apply — TLC_NG &rarr;
+          Join launch Circle <span style={{ fontSize: "1.2rem" }}>&rarr;</span>
         </button>
       </div>
 
