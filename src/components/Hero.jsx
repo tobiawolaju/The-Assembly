@@ -11,15 +11,15 @@ const ScrollHighlightWord = ({ children }) => {
   // Raw color transformation
   const targetColor = useTransform(
     scrollYProgress,
-    [0, 0.45, 0.5, 0.55, 1],
-    ["#ffffff", "#ffffff", "rgba(172, 47, 255, 1)", "#ffffff", "#ffffff"]
+    [0, 0.4, 0.5, 0.6, 1],
+    ["#ffffff", "#d966ff", "#bf00ff", "#d966ff", "#ffffff"]
   );
 
   // Raw scale transformation
   const targetScale = useTransform(
     scrollYProgress,
-    [0, 0.45, 0.5, 0.55, 1],
-    [1, 1, 1.15, 1, 1]
+    [0, 0.4, 0.5, 0.6, 1],
+    [1, 1.2, 1.5, 1.2, 1]
   );
 
   // Use springs for smoother, more fluid motion
@@ -37,9 +37,9 @@ const ScrollHighlightWord = ({ children }) => {
         transformOrigin: "center center"
       }}
       whileHover={{
-        color: "rgba(172, 47, 255, 1)",
-        scale: 1.15,
-        transition: { duration: 0.2 }
+        color: "#bf00ff",
+        scale: 1.5,
+        transition: { duration: 0.3 }
       }}
       className="hover-word"
     >
