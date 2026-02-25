@@ -69,8 +69,11 @@ const Hero = () => {
           className="hero-headline"
         >
           <ScrollHighlightWord>Builders</ScrollHighlightWord>.{" "}
+          <br />
           <ScrollHighlightWord>Developers</ScrollHighlightWord>.{" "}
+          <br />
           <ScrollHighlightWord>Designers</ScrollHighlightWord>.{" "}
+          <br />
           <ScrollHighlightWord>Student founders</ScrollHighlightWord> — <br />
           primarily building within the Monad ecosystem.
         </motion.h1>
