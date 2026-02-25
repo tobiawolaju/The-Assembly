@@ -42,7 +42,11 @@ const SocialProof = () => {
   return (
     <section className="social-grid-section">
       <div className="container">
-        <h2 className="section-title">Members 28 | 10 insitution, </h2>
+        <h2 className="section-title">28 Operators | 10 Universities | 1 Standard</h2>
+        <div className="feed-header">
+          <h3>Proof of Execution</h3>
+          <p>Members shipping. Members earning. Members building in public.</p>
+        </div>
         <div className="masonry-grid">
           {socialPosts.map((post) => (
             <motion.div
@@ -109,8 +113,20 @@ const SocialProof = () => {
           font-size: 2.5rem;
           font-weight: 800;
           text-align: center;
-          margin-bottom: 50px;
+          margin-bottom: 20px;
           letter-spacing: -0.04em;
+        }
+
+        .feed-header {
+          text-align: center;
+          margin-bottom: 50px;
+          color: #666;
+        }
+
+        .feed-header h3 {
+          color: #fff;
+          font-size: 1.5rem;
+          margin-bottom: 8px;
         }
 
         .masonry-grid {

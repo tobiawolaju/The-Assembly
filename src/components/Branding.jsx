@@ -4,29 +4,26 @@ import { motion } from 'framer-motion';
 const brandingText = "INNERCIRCLE ";
 
 const Branding = () => {
-    return (
-        <section className="branding-section">
-            <div className="cta-container">
-                <div className="cta-content">
-                    <h2 className="cta-title">Subscribe To<br />The Signal.</h2>
-                    <button className="subscribe-btn">
-                        Subscribe Now &rarr;
-                    </button>
-                </div>
-                <div className="socials">
-                    <p className="social-label">Socials</p>
-                    <a href="#" className="social-link">Twitter</a>
-                    <a href="#" className="social-link">Join Community</a>
-                </div>
-            </div>
+  return (
+    <section className="branding-section">
+      <div className="cta-container">
+        <div className="cta-content">
+          <h2 className="cta-title">The Signal</h2>
+          <p className="cta-subtitle">Weekly leverage for students building before graduation.</p>
+          <button className="subscribe-btn">
+            Get The Signal →
+          </button>
+        </div>
 
-            <div className="large-branding-wrapper">
-                <div className="massive-text">
-                    {brandingText.repeat(5)}
-                </div>
-            </div>
+      </div>
 
-            <style jsx>{`
+      <div className="large-branding-wrapper">
+        <div className="massive-text">
+          {"DON’T GRADUATE UNPOSITIONED ".repeat(4)}
+        </div>
+      </div>
+
+      <style jsx>{`
         .branding-section {
           background-color: #fff;
           color: #000;
@@ -46,15 +43,20 @@ const Branding = () => {
         }
 
         .cta-title {
-          font-size: 3.5rem;
-          line-height: 1;
-          font-weight: 700;
-          margin-bottom: 40px;
-          letter-spacing: -0.04em;
+          font-size: clamp(2.5rem, 6vw, 4rem);
+          font-weight: 800;
+          line-height: 1.1;
+          margin-bottom: 10px;
+        }
+
+        .cta-subtitle {
+          font-size: 1.2rem;
+          color: #666;
+          margin-bottom: 30px;
         }
 
         .subscribe-btn {
-          background-color: #0047ff;
+          background-color: #6200ffff;
           color: #fff;
           padding: 18px 36px;
           border-radius: 40px;
@@ -94,7 +96,7 @@ const Branding = () => {
         }
 
         .large-branding-wrapper {
-          background-color: #0047ff;
+          background-color: #6200ffff;
           width: 100%;
           padding: 40px 0;
           display: flex;
@@ -123,8 +125,8 @@ const Branding = () => {
           }
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Branding;

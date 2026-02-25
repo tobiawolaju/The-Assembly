@@ -45,33 +45,19 @@ const LandingHero = () => {
 
       <div className="hero-content">
         <h1 className="main-headline">
-          Cracked <br />
-          <span className="word-swap">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={content[index].word}
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.3 }}
-                style={{ color: content[index].color }}
-                className="highlighted-word"
-              >
-                {content[index].word}
-              </motion.span>
-            </AnimatePresence>
-          </span>
-          <br />need a <br />cracked home.
+          Don’t <br />
+          graduate <br />
+          unpositioned.
         </h1>
 
         <p className="sub-headline">
-          Your circle is your edge to<br />
-          build products, find users and<br />
-          raise capital.
+          Your circle determines your leverage.<br />
+          Build real products. Ship before graduation.<br />
+          Enter the world positioned to win.
         </p>
 
         <button className="join-btn">
-          Join Inner Circle
+          Apply — TLC_NG
           <span className="arrow">→</span>
         </button>
       </div>
@@ -97,7 +83,7 @@ const LandingHero = () => {
           grid-template-columns: repeat(4, 1fr);
           grid-template-rows: repeat(6, 1fr);
           padding: 2vh 2vw;
-          gap: 20px;
+          gap: 10px;
           z-index: 1;
         }
 
@@ -108,8 +94,8 @@ const LandingHero = () => {
         }
 
         .base-circle {
-          width: 160px;
-          height: 160px;
+          width: 280px;
+          height: 280px;
           border-radius: 50%;
           background-color: #121212; /* The "placeholder" circle color */
           background-size: cover;
@@ -183,8 +169,8 @@ const LandingHero = () => {
             grid-template-columns: repeat(3, 1fr);
           }
           .base-circle {
-            width: 80px;
-            height: 80px;
+            width: 160px;
+            height: 160px;
           }
         }
       `}</style>

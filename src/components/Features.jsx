@@ -3,55 +3,62 @@ import { motion } from 'framer-motion';
 import { BookOpen, Trophy, Users } from 'lucide-react';
 
 const featureData = [
-    {
-        title: "Academy",
-        description: "Master the skills needed to build and lead in the decentralized future. Structured learning paths for every level.",
-        icon: <BookOpen size={32} />,
-        color: "var(--neon-blue)",
-        delay: 0.1
-    },
-    {
-        title: "Bounties",
-        description: "Earn by doing. Complete tasks for top protocols and get paid in crypto. Real work, real rewards.",
-        icon: <Trophy size={32} />,
-        color: "var(--neon-orange)",
-        delay: 0.2
-    },
-    {
-        title: "Community",
-        description: "Network with the best. Join a global circle of builders, creators, and traders pushing the boundaries.",
-        icon: <Users size={32} />,
-        color: "var(--neon-purple)",
-        delay: 0.3
-    }
+  {
+    title: "Skill",
+    description: "Master high-leverage skills before graduation. Structured learning paths for every level.",
+    icon: <BookOpen size={32} />,
+    color: "var(--neon-blue)",
+    delay: 0.1
+  },
+  {
+    title: "Ship",
+    description: "Launch real products. Not portfolio projects. Ship before graduation.",
+    icon: <Trophy size={32} />,
+    color: "var(--neon-orange)",
+    delay: 0.2
+  },
+  {
+    title: "Earn",
+    description: "Make your first independent income before graduation. Real work, real rewards.",
+    icon: <Trophy size={32} />,
+    color: "var(--neon-purple)",
+    delay: 0.3
+  },
+  {
+    title: "Align",
+    description: "Surround yourself with operators, not spectators. Align with the best.",
+    icon: <Users size={32} />,
+    color: "var(--neon-blue)",
+    delay: 0.4
+  }
 ];
 
 const Features = () => {
-    return (
-        <section className="features-section">
-            <div className="container">
-                <div className="features-grid">
-                    {featureData.map((feature, idx) => (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: feature.delay, duration: 0.5 }}
-                            className="feature-card glass"
-                        >
-                            <div className="icon-wrapper" style={{ color: feature.color }}>
-                                {feature.icon}
-                            </div>
-                            <h3>{feature.title}</h3>
-                            <p>{feature.description}</p>
-                            <div className="card-glow" style={{ background: feature.color }}></div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
+  return (
+    <section className="features-section">
+      <div className="container">
+        <div className="features-grid">
+          {featureData.map((feature, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: feature.delay, duration: 0.5 }}
+              className="feature-card glass"
+            >
+              <div className="icon-wrapper" style={{ color: feature.color }}>
+                {feature.icon}
+              </div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+              <div className="card-glow" style={{ background: feature.color }}></div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
 
-            <style jsx>{`
+      <style jsx>{`
         .features-section {
           padding: 100px 20px;
           background: var(--bg-color);
@@ -109,8 +116,8 @@ const Features = () => {
           opacity: 0.15;
         }
       `}</style>
-        </section>
-    );
+    </section>
+  );
 };
 
 export default Features;
