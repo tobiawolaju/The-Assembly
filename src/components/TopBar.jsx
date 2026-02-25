@@ -2,33 +2,33 @@ import React, { useState } from 'react';
 import GetSupportModal from './GetSupportModal';
 
 const TopBar = () => {
-    const [modalOpen, setModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-    return (
-        <>
-            <header className="top-bar">
-                <nav className="top-bar-nav">
-                    <button
-                        className="top-bar-link"
-                        onClick={() => setModalOpen(true)}
-                    >
-                        Get Support
-                    </button>
+  return (
+    <>
+      <header className="top-bar">
+        <nav className="top-bar-nav">
+          <button
+            className="top-bar-link"
+            onClick={() => setModalOpen(true)}
+          >
+            Get Support
+          </button>
 
-                    <a
-                        href="https://lu.ma"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="top-bar-link"
-                    >
-                        Events
-                    </a>
-                </nav>
-            </header>
+          <a
+            href="https://lu.ma"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="top-bar-link"
+          >
+            Events
+          </a>
+        </nav>
+      </header>
 
-            <GetSupportModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
+      <GetSupportModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
 
-            <style>{`
+      <style>{`
         .top-bar {
           position: fixed;
           top: 0;
@@ -38,10 +38,10 @@ const TopBar = () => {
           display: flex;
           justify-content: flex-end;
           padding: 14px 28px;
-          background: rgba(5, 5, 5, 0.6);
+          background: rgba(5, 5, 5, 0.15);
           backdrop-filter: blur(12px);
           -webkit-backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+          border-bottom: 1px solid rgba(0, 0, 0, 0.18);
         }
 
         .top-bar-nav {
@@ -72,8 +72,8 @@ const TopBar = () => {
           background: rgba(255, 255, 255, 0.07);
         }
       `}</style>
-        </>
-    );
+    </>
+  );
 };
 
 export default TopBar;
