@@ -19,7 +19,7 @@ const Branding = () => {
 
       <div className="large-branding-wrapper">
         <div className="massive-text">
-          {"DON’T GRADUATE UNPOSITIONED ".repeat(4)}
+          {"DON’T GRADUATE UNPOSITIONED"}
         </div>
       </div>
 
@@ -100,11 +100,12 @@ const Branding = () => {
           width: 100%;
           padding: 40px 0;
           display: flex;
-          white-space: nowrap;
+          white-space: wrap;
+          height:auto;
         }
 
         .massive-text {
-          font-size: 18vw;
+          font-size: 25vw;
           font-weight: 900;
           color: #fff;
           line-height: 0.8;
