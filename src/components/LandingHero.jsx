@@ -45,20 +45,19 @@ const LandingHero = () => {
 
       <div className="hero-content">
         <h1 className="main-headline">
-          Don’t <br />
-          graduate <br />
-          unpositioned.
+          Don’t Graduate <br />
+          Unpositioned.
         </h1>
 
         <p className="sub-headline">
           Your circle determines your leverage.<br />
-          Build real products. Ship before graduation.<br />
-          Enter the world positioned to win.
+          Ship before graduation.<br />
+          Build real products.<br />
+          Enter the world already ahead.
         </p>
 
         <button className="join-btn">
-          Apply — TLC_NG
-          <span className="arrow">→</span>
+          Apply — TLC_NG &rarr;
         </button>
       </div>
 
@@ -67,7 +66,7 @@ const LandingHero = () => {
           position: relative;
           min-height: 100vh;
           background-color: #050505;
-          color: #ffffff;
+          color: #7f2fffff;
           display: flex;
           align-items: center;
           justify-content: center;

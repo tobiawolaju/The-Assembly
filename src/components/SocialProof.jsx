@@ -45,7 +45,10 @@ const SocialProof = () => {
         <h2 className="section-title">28 Operators | 10 Universities | 1 Standard</h2>
         <div className="feed-header">
           <h3>Proof of Execution</h3>
-          <p>Members shipping. Members earning. Members building in public.</p>
+          <p>Products launched. Revenue generated. Builders accountable.</p>
+        </div>
+        <div className="in-public-header">
+          <h2>In Public</h2>
         </div>
         <div className="masonry-grid">
           {socialPosts.map((post) => (
@@ -127,6 +130,18 @@ const SocialProof = () => {
           color: #fff;
           font-size: 1.5rem;
           margin-bottom: 8px;
+        }
+
+        .in-public-header {
+          margin: 60px 0 30px;
+          text-align: left;
+        }
+
+        .in-public-header h2 {
+          color: #fff;
+          font-size: 2.2rem;
+          font-weight: 800;
+          letter-spacing: -0.04em;
         }
 
         .masonry-grid {

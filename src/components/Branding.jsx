@@ -19,7 +19,7 @@ const Branding = () => {
 
       <div className="large-branding-wrapper">
         <div className="massive-text">
-          {"DON’T GRADUATE UNPOSITIONED"}
+          {"-.. --- -. .----. -   --. .-. .- -.. ..- .- - .   ..- -. .--. --- ... .. - .. --- -. . -.."}
         </div>
       </div>
 
@@ -96,7 +96,7 @@ const Branding = () => {
         }
 
         .large-branding-wrapper {
-          background-color: #6200ffff;
+          background-color: #e4d3ffff;
           width: 100%;
           padding: 40px 0;
           display: flex;
@@ -105,9 +105,9 @@ const Branding = () => {
         }
 
         .massive-text {
-          font-size: 25vw;
+          font-size: 15vw;
           font-weight: 900;
-          color: #fff;
+          color: #7700ffff;
           line-height: 0.8;
           letter-spacing: -0.05em;
           text-transform: uppercase;
@@ -129,5 +129,4 @@ const Branding = () => {
     </section>
   );
 };
-
 export default Branding;

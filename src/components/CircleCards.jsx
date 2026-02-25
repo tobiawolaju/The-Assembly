@@ -3,35 +3,35 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const cardData = [
   {
-    id: 'learn',
-    title: 'Learn',
-    subtitle: 'Through Academy',
+    id: 'master',
+    title: 'Master',
+    subtitle: 'Skills',
     color: '#ff3d00',
-    description: 'Upskill through structured, hands-on programs. Whether you\'re an outsider or a know-it-all, the Academy gets you building on Base, not just reading about it. Come learn by the best.',
+    description: 'Develop high-leverage skills before graduation. Master the tools that move the needle in production environments.',
     pattern: 'circles'
   },
   {
-    id: 'build',
-    title: 'Build',
-    subtitle: 'Through Programs',
+    id: 'ship',
+    title: 'Ship',
+    subtitle: 'Products',
     color: '#0052ff',
-    description: 'Go from learner to shipper real steady. Join our programs and show us what you got. You never know you might get a spot in Base Batches, get into Incubase, and turn your ideas into live onchain products with real users.',
+    description: 'Launch real products — not portfolio projects. We focus on shipping onchain applications with actual utility and user potential.',
     pattern: 'stars'
   },
   {
     id: 'earn',
     title: 'Earn',
-    subtitle: 'Through First Dollar',
+    subtitle: 'Income',
     color: '#a855f7',
-    description: 'First Dollar is a talent network for Base where proof-of-work is reputation, and skill is the currency. Earn your first dollar onchain. Get matched with paid gigs, bounties, and contributor roles across Base ecosystem projects. You dont have to buy your first dollar you can just earn it.',
+    description: 'Generate independent income before you leave school. Access bounties, grants, and contributor roles within elite ecosystems.',
     pattern: 'circles'
   },
   {
-    id: 'grow',
-    title: 'Grow',
-    subtitle: 'Through Community',
+    id: 'align',
+    title: 'Align',
+    subtitle: 'Operators',
     color: '#99ff00',
-    description: 'At Inner Circle we believe in creating together. Here you are never alone and help will always be given to those who ask for it. You operate permissionless here, give more than you can ever take.',
+    description: 'Build alongside serious operators. Your circle determines your edge; surround yourself with those already winning.',
     pattern: 'stars'
   }
 ];
@@ -42,10 +42,11 @@ const CircleCards = () => {
   return (
     <section className="circle-cards-section">
       <div className="container">
-        <h2 className="section-title">Be Part Of The Circle</h2>
+        <h2 className="section-title">Be Part of The Launch Circle</h2>
         <p className="section-subtitle">
-          The path is open for everyone, at whatever stage you're in - <br />
-          Pick a place and start acting on it.
+          Admission is merit-based. <br />
+          Final-year students and recent graduates only. <br />
+          Execution required.
         </p>
 
         <div className="cards-grid">

@@ -11,7 +11,8 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="hero-headline"
         >
-          The Misfits <span className="separator">&lt;&gt;</span> The Rebels <span className="separator">&lt;&gt;</span> The Troublemakers <span className="separator">&lt;&gt;</span> The Ones Who See Things Differently <span className="tilde">~</span> Builders, Traders, Founders, Creators, You!
+          <span className="hover-word">Builders</span>. <span className="hover-word">Developers</span>. <span className="hover-word">Designers</span>. <span className="hover-word">Student founders</span> — <br />
+          primarily building within the Monad ecosystem.
         </motion.h1>
       </div>
 
@@ -27,11 +28,11 @@ const Hero = () => {
         }
 
         .container {
-          max-width: 1400px;
           margin: 0 auto;
         }
 
         .hero-headline {
+          max-width: 80vw;
           font-size: clamp(2.5rem, 6vw, 4rem);
           font-weight: 700;
           line-height: 1.1;
@@ -40,9 +41,18 @@ const Hero = () => {
           font-family: 'Inter', system-ui, sans-serif;
         }
 
+        .hover-word {
+          transition: color 0.3s ease;
+          cursor: crosshair;
+        }
+
+        .hover-word:hover {
+          color: #7f2fffff;
+        }
+
         .separator {
           color: #333;
-          margin: 0 10px;
+          margin: 0px;
         }
 
         .tilde {
@@ -51,7 +61,8 @@ const Hero = () => {
 
         @media (max-width: 768px) {
           .hero-section {
-            padding: 80px 20px;
+            max-width: 80vw;
+            scale: 0.9;
           }
           .hero-headline {
             font-size: 2.5rem;
