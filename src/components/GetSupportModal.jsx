@@ -167,7 +167,7 @@ const GetSupportModal = ({ isOpen, onClose }) => {
                   <button
                     type="submit"
                     className="submit-btn"
-                    disabled={!form.building || !form.problem || !form.audience || !form.stage || !form.support}
+                    disabled={!form.xUsername || !form.building || !form.problem || !form.audience || !form.stage || !form.support}
                   >
                     Submit →
                   </button>
