@@ -112,7 +112,7 @@ const Hero = () => {
           font-size: clamp(1.2rem, 3vw, 1.8rem);
           font-weight: 400;
           opacity: 0.5;
-          margin-top: 0.5em;
+          margin-top: 0.25em;
         }
 
         .hover-word {
