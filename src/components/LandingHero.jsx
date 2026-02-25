@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const content = [
-  { word: "designers", color: "#FF4D00" },
-  { word: "creators", color: "#C5FF00" },
-  { word: "builders", color: "#0070FF" }
+const headlines = [
+  "Don’t Graduate\nUnpositioned.",
+  "Your circle determines\nyour leverage.",
+  "Build real products.",
+  "Ship before graduation.",
+  "Enter the world\nalready ahead."
 ];
 
 const LandingHero = () => {
@@ -12,8 +14,8 @@ const LandingHero = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % content.length);
-    }, 2500);
+      setIndex((prev) => (prev + 1) % headlines.length);
+    }, 3500);
     return () => clearInterval(timer);
   }, []);
 
@@ -44,16 +46,29 @@ const LandingHero = () => {
       </div>
 
       <div className="hero-content">
-        <h1 className="main-headline">
-          Don’t Graduate <br />
-          Unpositioned.
-        </h1>
+        <div className="headline-container">
+          <AnimatePresence mode="wait">
+            <motion.h1
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="main-headline"
+            >
+              {headlines[index].split('\n').map((line, i) => (
+                <React.Fragment key={i}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
+            </motion.h1>
+          </AnimatePresence>
+        </div>
 
         <p className="sub-headline">
-          Your circle determines your leverage.<br />
-          Ship before graduation.<br />
-          Build real products.<br />
-          Enter the world already ahead.
+          Your Circle is your edge to build products,<br />
+          find users and raise capital.
         </p>
 
         <button className="join-btn">
@@ -122,18 +137,22 @@ const LandingHero = () => {
           pointer-events: none; /* Allows hovering circles behind text */
         }
 
+        .headline-container {
+          min-height: 12rem; /* Adjusted to fit the longest headline */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 20px;
+        }
+
         .main-headline {
           font-size: clamp(3rem, 9vw, 4rem);
           font-weight: 800;
-          line-height: 1;
+          line-height: 1.1;
           letter-spacing: -0.04em;
-          margin-bottom: 20px;
+          margin-bottom: 0;
           max-width: 80vw;
-        }
-
-        .word-swap {
-          display: inline-block;
-          height: 1.1em;
+          white-space: pre-wrap;
         }
 
         .sub-headline {
