@@ -34,7 +34,7 @@ const LandingHero = () => {
           const photo = photoGrid.find(p => p.pos === i);
           return (
             <div key={i} className="grid-circle-wrapper">
-              <div 
+              <div
                 className={`base-circle ${photo ? 'has-photo' : ''}`}
                 style={photo ? { backgroundImage: `url(${photo.url})` } : {}}
               />
@@ -60,10 +60,10 @@ const LandingHero = () => {
                 {content[index].word}
               </motion.span>
             </AnimatePresence>
-          </span> 
+          </span>
           <br />need a <br />cracked home.
         </h1>
-        
+
         <p className="sub-headline">
           Your circle is your edge to<br />
           build products, find users and<br />
@@ -71,7 +71,7 @@ const LandingHero = () => {
         </p>
 
         <button className="join-btn">
-          Join Inner Circle 
+          Join Inner Circle
           <span className="arrow">→</span>
         </button>
       </div>
@@ -96,8 +96,8 @@ const LandingHero = () => {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           grid-template-rows: repeat(6, 1fr);
-          padding: 5vh 5vw;
-          gap: 10px;
+          padding: 2vh 2vw;
+          gap: 20px;
           z-index: 1;
         }
 
@@ -108,8 +108,8 @@ const LandingHero = () => {
         }
 
         .base-circle {
-          width: 100px;
-          height: 100px;
+          width: 160px;
+          height: 160px;
           border-radius: 50%;
           background-color: #121212; /* The "placeholder" circle color */
           background-size: cover;
