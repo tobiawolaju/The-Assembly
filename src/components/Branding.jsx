@@ -1,20 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const brandingText = "INNERCIRCLE ";
-
 const Branding = () => {
   return (
     <section className="branding-section">
       <div className="cta-container">
         <div className="cta-content">
           <h2 className="cta-title">The Signal</h2>
-          <p className="cta-subtitle">Weekly leverage for students building before graduation.</p>
-          <button className="subscribe-btn">
-            Get The Signal →
-          </button>
-        </div>
+          <p className="cta-subtitle">
+            Weekly leverage for students building before graduation.
+          </p>
 
+          <a
+            href="https://your-substack-url.substack.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="substack-btn"
+          >
+            <svg
+              className="substack-icon"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M3 3h18v4H3V3zm0 6h18v2H3V9zm0 4h18v8l-9-4-9 4v-8z"
+                fill="currentColor"
+              />
+            </svg>
+            Subscribe on Substack
+          </a>
+        </div>
       </div>
 
       <div className="large-branding-wrapper">
@@ -55,59 +70,44 @@ const Branding = () => {
           margin-bottom: 30px;
         }
 
-        .subscribe-btn {
-          background-color: rgba(172, 47, 255, 1);
-          color: #000000ff;
+        /* Substack Button */
+        .substack-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          background-color: #FF6719; /* Substack orange */
+          color: #ffffff;
           padding: 18px 36px;
           border-radius: 40px;
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           font-weight: 600;
-          border: none;
-          cursor: pointer;
-          transition: transform 0.2s ease;
-        }
-
-        .subscribe-btn:hover {
-          transform: scale(1.05);
-        }
-
-        .social-label {
-          font-weight: 700;
-          margin-bottom: 12px;
-          font-size: 1.1rem;
-        }
-
-        .socials {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          text-align: right;
-        }
-
-        .social-link {
-          color: #666;
           text-decoration: none;
-          font-size: 1.1rem;
-          transition: color 0.2s;
+          transition: all 0.2s ease;
         }
 
-        .social-link:hover {
-          color: #000;
+        .substack-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .substack-icon {
+          width: 22px;
+          height: 22px;
         }
 
         .large-branding-wrapper {
-          background-color: #e4d3ffff;
+          background-color: #e4d3ff;
           width: 100%;
           padding: 40px 0;
           display: flex;
           white-space: wrap;
-          height:auto;
+          height: auto;
         }
 
         .massive-text {
           font-size: 15vw;
           font-weight: 900;
-          color: #7700ffff;
+          color: #7700ff;
           line-height: 0.8;
           letter-spacing: -0.05em;
           text-transform: uppercase;
@@ -121,12 +121,10 @@ const Branding = () => {
           .cta-title {
             font-size: 2.5rem;
           }
-          .socials {
-            text-align: left;
-          }
         }
       `}</style>
     </section>
   );
 };
+
 export default Branding;
