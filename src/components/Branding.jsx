@@ -27,7 +27,7 @@ const Branding = () => {
                 fill="currentColor"
               />
             </svg>
-            Subscribe on Substack
+            Join our Substack
           </a>
         </div>
       </div>
@@ -75,7 +75,7 @@ const Branding = () => {
           display: inline-flex;
           align-items: center;
           gap: 12px;
-          background-color: #FF6719; /* Substack orange */
+          background-color: #7700ffff; /* Substack orange */
           color: #ffffff;
           padding: 18px 36px;
           border-radius: 40px;
