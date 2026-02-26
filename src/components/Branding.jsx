@@ -24,7 +24,7 @@ const Branding = () => {
             >
               <path
                 d="M3 3h18v4H3V3zm0 6h18v2H3V9zm0 4h18v8l-9-4-9 4v-8z"
-                fill="currentColor"
+                fill="#000000"
               />
             </svg>
             Join our Substack
@@ -76,7 +76,7 @@ const Branding = () => {
           align-items: center;
           gap: 12px;
           background-color: #7700ffff; /* Substack orange */
-          color: #ffffff;
+          color: #000000ff;
           padding: 18px 36px;
           border-radius: 40px;
           font-size: 1.1rem;
