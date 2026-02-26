@@ -96,9 +96,10 @@ const LandingHero = () => {
           find users and raise capital.
         </p>
 
-        <button className="join-btn">
+        {/* <button className="join-btn">
           Join launch Circle <span style={{ fontSize: "1.2rem" }}>&rarr;</span>
         </button>
+    */}
       </div>
 
       <style jsx>{`
