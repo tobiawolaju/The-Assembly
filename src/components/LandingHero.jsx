@@ -137,8 +137,8 @@ const LandingHero = () => {
         }
 
         .base-circle {
-          width: 280px;
-          height: 280px;
+          width: 220px;
+          height: 220px;
           border-radius: 50%;
           background-color: #12121273;
           background-size: cover;
@@ -212,8 +212,8 @@ const LandingHero = () => {
             grid-template-columns: repeat(3, 1fr);
           }
           .base-circle {
-            width: 160px;
-            height: 160px;
+            width: 140px;
+            height: 140px;
           }
         }
       `}</style>
