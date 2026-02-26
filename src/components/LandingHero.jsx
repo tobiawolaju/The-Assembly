@@ -92,8 +92,7 @@ const LandingHero = () => {
         </div>
 
         <p className="sub-headline">
-          Your Circle is your edge to build products,<br />
-          find users and raise capital.
+          Cracked space for cracked talent on Monad
         </p>
 
         {/* <button className="join-btn">
