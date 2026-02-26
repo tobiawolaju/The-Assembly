@@ -9,6 +9,8 @@ const headlines = [
   "Enter the world\nalready ahead."
 ];
 
+const highlightWords = ["leverage.", "Build", "already ahead."];
+
 const LandingHero = () => {
   const [index, setIndex] = useState(0);
 
@@ -19,7 +21,31 @@ const LandingHero = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Map photos to specific grid positions to match your screenshots
+  const renderLineWithHighlight = (line) => {
+    let content = line;
+
+    highlightWords.forEach((word) => {
+      if (content.includes(word)) {
+        content = content.replace(
+          word,
+          `|||HIGHLIGHT|||${word}|||ENDHIGHLIGHT|||`
+        );
+      }
+    });
+
+    return content.split("|||HIGHLIGHT|||").map((part, i) => {
+      if (part.includes("|||ENDHIGHLIGHT|||")) {
+        const [highlighted] = part.split("|||ENDHIGHLIGHT|||");
+        return (
+          <span key={i} className="purple-text">
+            {highlighted}
+          </span>
+        );
+      }
+      return <React.Fragment key={i}>{part}</React.Fragment>;
+    });
+  };
+
   const photoGrid = [
     { pos: 0, url: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400" },
     { pos: 7, url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400" },
@@ -30,7 +56,6 @@ const LandingHero = () => {
 
   return (
     <section className="landing-hero">
-      {/* Background Grid Layer */}
       <div className="bg-grid-container">
         {[...Array(24)].map((_, i) => {
           const photo = photoGrid.find(p => p.pos === i);
@@ -58,7 +83,7 @@ const LandingHero = () => {
             >
               {headlines[index].split('\n').map((line, i) => (
                 <React.Fragment key={i}>
-                  {line}
+                  {renderLineWithHighlight(line)}
                   <br />
                 </React.Fragment>
               ))}
@@ -81,7 +106,7 @@ const LandingHero = () => {
           position: relative;
           min-height: 100vh;
           background-color: #050505;
-          color: rgba(172, 47, 255, 1);
+          color: #ffffff; /* Headline now white */
           display: flex;
           align-items: center;
           justify-content: center;
@@ -89,7 +114,10 @@ const LandingHero = () => {
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        /* The background grid of circles */
+        .purple-text {
+          color: rgba(172, 47, 255, 1);
+        }
+
         .bg-grid-container {
           position: absolute;
           inset: 0;
@@ -111,7 +139,7 @@ const LandingHero = () => {
           width: 280px;
           height: 280px;
           border-radius: 50%;
-          background-color: #12121273; /* The "placeholder" circle color */
+          background-color: #12121273;
           background-size: cover;
           background-position: center;
           transition: all 0.4s ease;
@@ -134,11 +162,11 @@ const LandingHero = () => {
           position: relative;
           z-index: 10;
           text-align: center;
-          pointer-events: none; /* Allows hovering circles behind text */
+          pointer-events: none;
         }
 
         .headline-container {
-          min-height: 12rem; /* Adjusted to fit the longest headline */
+          min-height: 12rem;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -176,10 +204,6 @@ const LandingHero = () => {
           display: inline-flex;
           align-items: center;
           gap: 8px;
-        }
-
-        .arrow {
-          font-size: 1.2rem;
         }
 
         @media (max-width: 768px) {
