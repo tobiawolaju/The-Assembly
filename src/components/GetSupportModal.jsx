@@ -71,7 +71,7 @@ const GetSupportModal = ({ isOpen, onClose }) => {
             {!submitted ? (
               <>
                 <div className="modal-header">
-                  <span className="modal-eyebrow">Get Support</span>
+                  <span className="modal-eyebrow">Join Launch Circle</span>
                   <h2 className="modal-title">Tell us what you're building</h2>
                   <p className="modal-sub">We'll connect you with the right people in the circle.</p>
                 </div>

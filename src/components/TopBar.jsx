@@ -12,7 +12,7 @@ const TopBar = () => {
             className="top-bar-link"
             onClick={() => setModalOpen(true)}
           >
-            Get Support
+            Join us
           </button>
 
           <a
