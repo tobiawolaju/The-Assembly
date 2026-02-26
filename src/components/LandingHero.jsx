@@ -9,7 +9,7 @@ const headlines = [
   "Enter the world\nalready ahead."
 ];
 
-const highlightWords = ["positioned", "leverage.", "Build real products.", "already ahead."];
+const highlightWords = ["positioned", "leverage.", "Build real products.", "Ship before graduation.", "already ahead."];
 
 const LandingHero = () => {
   const [index, setIndex] = useState(0);
