@@ -125,7 +125,7 @@ const LandingHero = () => {
           grid-template-columns: repeat(4, 1fr);
           grid-template-rows: repeat(6, 1fr);
           padding: 2vh 2vw;
-          gap: 10px;
+          gap: 0px;
           z-index: 1;
         }
 
